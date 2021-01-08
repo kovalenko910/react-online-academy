@@ -1,2 +1,3 @@
 export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
-export const ACTIVATE_COURSE = "ACTIVATE_COURSE";
+export const ACTIVATE_STEP = "ACTIVATE_STEP";
+export const DONE_STEP = "DONE_STEP";

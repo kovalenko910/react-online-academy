@@ -1,9 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import {CourseContext} from "../context/course/courseContext";
 
-export const Keypoints = ({steps}) => {
-  const keypoints = new Array(3).fill('');
-
+export const Keypoints = () => {
   const {course, activateCourse} = useContext(CourseContext);
 
   const toggleActive = (element) => {
@@ -26,7 +24,7 @@ export const Keypoints = ({steps}) => {
   return (
     <ul id="keypoints-list" className="list-group">
       {
-        steps.map((e,i) => (
+        course.steps.map((e,i) => (
           <li className={!e.done ? "list-group-item" : "list-group-item done"} onClick={event => (toggleActive(event.currentTarget))} key={e.id} data-course-number={e.id}>
             <div className="heart icon"></div>
             <span>{e.title}</span>
