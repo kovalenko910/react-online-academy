@@ -14,8 +14,6 @@ $primary-color: #0d6efd !default;
   align-items: $align-items;
 }
 
-//$lt-primary-color: $primary-color;
-
 html, body, #root {
   height: 100%;
 }
@@ -34,103 +32,49 @@ code {
     monospace;
 }
 
-#keypoints-list li {
-  cursor: pointer;
+/* PURE CSS ICONS */
+
+.heart.icon {
+  color: currentColor;
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 5px;
+  width: 10px;
+  height: 10px;
+  border-left: solid 1px currentColor;
+  border-bottom: solid 1px currentColor;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 
   &:before {
-    display: none;
-    content: " ";
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 4px;
-    background: $primary-color;
-  }
-  
-  &.current:before, &:hover:before, &.done:before {
-    display: block;
-  }
-
-  span {
-    padding-left: 25px;
-  }
-
-  .heart.icon {
-    color: #000;
-    position: absolute;
-    margin-top: 8px;
-    margin-left: 5px;
+    top: -5px;
+    left: -1px;
     width: 10px;
-    height: 10px;
+    height: 6px;
+    border-radius: 5px 5px 0 0;
+    border-top: solid 1px currentColor;
     border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 8px;
+    width: 6px;
+    height: 10px;
+    border-radius: 0 5px 5px 0;
+    border-top: solid 1px currentColor;
+    border-right: solid 1px currentColor;
     border-bottom: solid 1px currentColor;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: -5px;
-      left: -1px;
-      width: 10px;
-      height: 6px;
-      border-radius: 5px 5px 0 0;
-      border-top: solid 1px currentColor;
-      border-left: solid 1px currentColor;
-      border-right: solid 1px currentColor;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0px;
-      left: 8px;
-      width: 6px;
-      height: 10px;
-      border-radius: 0 5px 5px 0;
-      border-top: solid 1px currentColor;
-      border-right: solid 1px currentColor;
-      border-bottom: solid 1px currentColor;
-    }
-  }
-
-  &.current, &:hover {
-    color: $primary-color;
-
-    .heart.icon {
-      color: $primary-color;
-    }
-  }
-
-  &.current {
-    transform: translate(6px, 2px);
-    z-index: 2;
-    box-shadow: 0px 1px 7px #000;
-  }
-
-  &.current.done {
-    box-shadow: 0px 1px 7px $primary-color;
-  }
-
-  &.done {
-    .heart.icon {
-      color: $primary-color;
-      background: $primary-color;
-
-      &:before {
-        background: $primary-color;
-      }
-
-      &:after {
-        background: $primary-color;
-      }
-    }
   }
 }
 
 .code.icon {
-  color: $primary-color;
+  color: currentColor;
   position: absolute;
   margin-left: 3px;
   margin-top: 9px;
@@ -159,83 +103,11 @@ code {
     transform: rotate(-45deg);
   }
 }
-
 .btn:hover {
   .code.icon {
     color: #fff;
     transition: color 0.15s;
   }
-}
-
-.title-picture {
-  height: 50vh;
-}
-
-.big-title {
-  height: 75vh!important;
-  min-height: 250px;
-  background-size: 100% auto;
-  background-position-y: center;
-  position: relative;
-
-  &:before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    @include overlay-opacity(#000, 0.5);
-  }
-
-  .position-absolute {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-h1 {
-  text-shadow: 1px 1px #000;
-  font-size: 3.6rem;
-}
-
-h2 {
-  font-weight: bold;
-}
-
-.rounded-highlight {
-  border-radius: 12px;
-  display: inline-block;
-  line-height: 24px;
-  @include overlay-opacity(#fff, 0.5);
-}
-
-.main-content>div {
-  @include flex-box();
-}
-
-#sidebar ,#main-wrapper {
-  transition: all 1s;
-}
-
-#sidebar {
-  width: calc(100%/4)!important;
-  padding: 0 15px;
-  overflow: hidden;
-}
-#sidebar.d-none {
-  display: block!important;
-  width: 0!important;
-  transition: all 1s;
-  padding: 0;
-}
-#main-wrapper {
-  width: calc(300%/4)!important;
-}
-#main-wrapper.col-md-12 {
-  width: 100%!important;
 }
 
 .menu.icon {
@@ -270,21 +142,8 @@ h2 {
   }
 }
 
-header {
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dropdown-toggle::after {
-  display: none;
-}
-.dropdown-menu-end {
-  left: auto;
-  right: 0;
-}
-
 .profile.icon {
-  color: #000;
+  color: currentColor;
   position: absolute;
   margin-left: 3px;
   margin-top: 11px;
@@ -307,3 +166,137 @@ header {
     border: solid 1px currentColor;
   }
 }
+
+/* === */
+
+h1 {
+  text-shadow: 1px 1px #000;
+  font-size: 3.6rem;
+}
+h2 {
+  font-weight: bold;
+}
+.rounded-highlight {
+  border-radius: 12px;
+  display: inline-block;
+  line-height: 24px;
+  @include overlay-opacity(#fff, 0.5);
+}
+.main-content>div {
+  @include flex-box();
+}
+header {
+  @include flex-box(row, space-between);
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-menu-end {
+  left: auto;
+  right: 0;
+}
+
+#sidebar ,#main-wrapper {
+  transition: all 1s;
+}
+#sidebar {
+  width: calc(100%/4)!important;
+  padding: 0 15px;
+  overflow: hidden;
+}
+#sidebar.d-none {
+  display: block!important;
+  width: 0!important;
+  transition: all 1s;
+  padding: 0;
+}
+#main-wrapper {
+  width: calc(300%/4)!important;
+}
+#main-wrapper.col-md-12 {
+  width: 100%!important;
+}
+
+/* SINGLE COURSE PAGE */
+
+.big-title {
+  height: 75vh!important;
+  min-height: 250px;
+  background-size: 100% auto;
+  background-position-y: center;
+  position: relative;
+
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    @include overlay-opacity(#000, 0.5);
+  }
+
+  .position-absolute {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.title-picture {
+  height: 50vh;
+}
+
+#keypoints-list li {
+  cursor: pointer;
+
+  &:before {
+    display: none;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    background: $primary-color;
+  }
+
+  &.current:before, &:hover:before, &.done:before {
+    display: block;
+  }
+
+  span {
+    padding-left: 25px;
+  }
+
+  &.current, &:hover {
+    color: $primary-color;
+  }
+
+  &.current {
+    transform: translate(6px, 2px);
+    z-index: 2;
+    box-shadow: 0px 1px 7px #000;
+  }
+
+  &.current.done {
+    box-shadow: 0px 1px 7px $primary-color;
+  }
+
+  &.done {
+    .heart.icon {
+      color: $primary-color;
+      background: $primary-color;
+
+      &:before {
+        background: $primary-color;
+      }
+
+      &:after {
+        background: $primary-color;
+      }
+    }
+  }
+}
+/* === */
